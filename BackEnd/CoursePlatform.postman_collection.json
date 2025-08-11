@@ -1,0 +1,665 @@
+{
+  "info": {
+    "name": "Course Selling Platform API",
+    "_postman_id": "course-platform-2025-07-16T14:20:38.743612",
+    "description": "Postman collection for testing Course Selling Platform APIs",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Auth",
+      "item": [
+        {
+          "name": "POST /auth/signup",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "url": {
+              "raw": "http://localhost:4000/api/v1/auth/signup",
+              "host": ["http://localhost:4000/api/v1"],
+              "path": ["auth", "signup"]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"{{email}}\",\n  \"password\": \"{{password}}\",\n  \"firstName\": \"{{firstName}}\",\n  \"lastName\": \"{{lastName}}\"\n}"
+            },
+            "auth": null,
+            "description": "Register a new user. Example: {\"email\": \"test@example.com\", \"password\": \"Pass123!\", \"firstName\": \"John\", \"lastName\": \"Doe\"}"
+          }
+        },
+        {
+          "name": "POST /auth/login",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "url": {
+              "raw": "http://localhost:4000/api/v1/auth/login",
+              "host": ["http://localhost:4000/api/v1"],
+              "path": ["auth", "login"]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"{{email}}\",\n  \"password\": \"{{password}}\"\n}"
+            },
+            "auth": null,
+            "description": "Authenticate a user and return a token. Example: {\"email\": \"test@example.com\", \"password\": \"Pass123!\"}"
+          }
+        },
+        {
+          "name": "POST /auth/send-otp",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "url": {
+              "raw": "http://localhost:4000/api/v1/auth/send-otp",
+              "host": ["http://localhost:4000/api/v1"],
+              "path": ["auth", "send-otp"]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"{{email}}\"\n}"
+            },
+            "auth": null,
+            "description": "Send an OTP to the user's email. Example: {\"email\": \"test@example.com\"}"
+          }
+        },
+        {
+          "name": "POST /auth/change-password",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "url": {
+              "raw": "http://localhost:4000/api/v1/auth/change-password",
+              "host": ["http://localhost:4000/api/v1"],
+              "path": ["auth", "change-password"]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"oldPassword\": \"{{oldPassword}}\",\n  \"newPassword\": \"{{newPassword}}\"\n}"
+            },
+            "description": "Change the user's password. Requires authentication. Example: {\"oldPassword\": \"Pass123!\", \"newPassword\": \"NewPass456!\"}"
+          }
+        },
+        {
+          "name": "POST /auth/reset-password-token",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "url": {
+              "raw": "http://localhost:4000/api/v1/auth/reset-password-token",
+              "host": ["http://localhost:4000/api/v1"],
+              "path": ["auth", "reset-password-token"]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"{{email}}\"\n}"
+            },
+            "auth": null,
+            "description": "Generate a password reset token. Example: {\"email\": \"test@example.com\"}"
+          }
+        },
+        {
+          "name": "POST /auth/reset-password",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "url": {
+              "raw": "http://localhost:4000/api/v1/auth/reset-password",
+              "host": ["http://localhost:4000/api/v1"],
+              "path": ["auth", "reset-password"]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"token\": \"{{resetToken}}\",\n  \"newPassword\": \"{{newPassword}}\"\n}"
+            },
+            "auth": null,
+            "description": "Reset password using a token. Example: {\"token\": \"abc123\", \"newPassword\": \"NewPass456!\"}"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Courses",
+      "item": [
+        {
+          "name": "POST /course/create-course",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "url": {
+              "raw": "http://localhost:4000/api/v1/course/create-course",
+              "host": ["http://localhost:4000/api/v1"],
+              "path": ["course", "create-course"]
+            },
+            "body":{
+              "mode": "raw",
+              "raw": "{\n  \"courseName\": \"{{courseName}}\",\n  \"courseDescription\": \"{{courseDescription}}\",\n  \"price\": {{price}},\n  \"whatYouWillLearn\": \"{{whatYouWillLearn}}\",\n  \"category\": \"{{category}}\"\n}"
+            },
+            "description": "Create a new course. Requires authentication. Example: {\"courseName\": \"Python Basics\", \"courseDescription\": \"Learn Python\", \"price\": 99.99, \"whatYouWillLearn\": \"Python fundamentals\", \"category\": \"Programming\"}"
+          }
+        },
+        {
+          "name": "GET /course/get-all-courses",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:4000/api/v1/course/get-all-courses",
+              "host": ["http://localhost:4000/api/v1"],
+              "path": ["course", "get-all-courses"]
+            },
+            "description": "Retrieve all courses."
+          }
+        },
+        {
+          "name": "PUT /course/edit-course",
+          "request": {
+            "method": "PUT",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "url": {
+              "raw": "http://localhost:4000/api/v1/course/edit-course",
+              "host": ["http://localhost:4000/api/v1"],
+              "path": ["course", "edit-course"]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"courseId\": \"{{courseId}}\",\n  \"title\": \"{{title}}\"\n}"
+            },
+            "description": "Update a course. Requires authentication. Example: {\"courseId\": \"123\", \"title\": \"Advanced Python\"}"
+          }
+        },
+        {
+          "name": "GET /course/get-instructor-courses",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:4000/api/v1/course/get-instructor-courses",
+              "host": ["http://localhost:4000/api/v1"],
+              "path": ["course", "get-instructor-courses"]
+            },
+            "description": "Get courses created by the authenticated instructor."
+          }
+        },
+        {
+          "name": "GET /course/get-course-details",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:4000/api/v1/course/get-course-details?courseId={{courseId}}",
+              "host": ["http://localhost:4000/api/v1"],
+              "path": ["course", "get-course-details"],
+              "query": [
+                { "key": "courseId", "value": "{{courseId}}" }
+              ]
+            },
+            "description": "Get details of a specific course. Example: courseId=123"
+          }
+        },
+        {
+          "name": "GET /course/get-full-course-details",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:4000/api/v1/course/get-full-course-details?courseId={{courseId}}",
+              "host": ["http://localhost:4000/api/v1"],
+              "path": ["course", "get-full-course-details"],
+              "query": [
+                { "key": "courseId", "value": "{{courseId}}" }
+              ]
+            },
+            "description": "Get comprehensive details of a specific course. Example: courseId=123"
+          }
+        },
+        {
+          "name": "DELETE /course/delete-course",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:4000/api/v1/course/delete-course?courseId={{courseId}}",
+              "host": ["http://localhost:4000/api/v1"],
+              "path": ["course", "delete-course"],
+              "query": [
+                { "key": "courseId", "value": "{{courseId}}" }
+              ]
+            },
+            "description": "Delete a course. Requires authentication. Example: courseId= Holden"
+            }
+        },
+        {
+          "name": "POST /course/search-course",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "url": {
+              "raw": "http://localhost:4000/api/v1/course/search-course",
+              "host": ["http://localhost:4000/api/v1"],
+              "path": ["course", "search-course"]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"searchQuery\": \"{{searchQuery}}\"\n}"
+            },
+            "description": "Search courses by query. Example: {\"searchQuery\": \"Python\"}"
+          }
+        },
+        {
+          "name": "POST /course/update-course-progress",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "url": {
+              "raw": "http://localhost:4000/api/v1/course/update-course-progress",
+              "host": ["http://localhost:4000/api/v1"],
+              "path": ["course", "update-course-progress"]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"courseId\": \"{{courseId}}\",\n  \"subSectionId\": \"{{subSectionId}}\",\n  \"userId\": \"{{userId}}\"\n}"
+            },
+            "description": "Update user progress in a course. Requires authentication. Example: {\"courseId\": \"123\", \"subSectionId\": \"456\", \"userId\": \"789\"}"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Profile",
+      "item": [
+        {
+          "name": "GET /profile/get-user-details",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:4000/api/v1/profile/get-user-details",
+              "host": ["http://localhost:4000/api/v1"],
+              "path": ["profile", "get-user-details"]
+            },
+            "description": "Retrieve user profile details. Requires authentication."
+          }
+        },
+        {
+          "name": "PUT /profile/update-profile",
+          "request": {
+            "method": "PUT",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "url": {
+              "raw": "http://localhost:4000/api/v1/profile/update-profile",
+              "host": ["http://localhost:4000/api/v1"],
+              "path": ["profile", "update-profile"]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"gender\": \"{{gender}}\",\n  \"dob\": \"{{dob}}\",\n  \"about\": \"{{about}}\"\n}"
+            },
+            "description": "Update user profile. Requires authentication. Example: {\"gender\": \"Male\", \"dob\": \"1990-01-01\", \"about\": \"Software developer\"}"
+          }
+        },
+        {
+          "name": "PUT /profile/update-display-picture",
+          "request": {
+            "method": "PUT",
+            "header": [
+              { "key": "Content-Type", "value": "multipart/form-data" }
+            ],
+            "url": {
+              "raw": "http://localhost:4000/api/v1/profile/update-display-picture",
+              "host": ["http://localhost:4000/api/v1"],
+              "path": ["profile", "update-display-picture"]
+            },
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                { "key": "displayPicture", "type": "file", "src": "" }
+              ]
+            },
+            "description": "Update user's display picture. Requires authentication and a file upload."
+          }
+        },
+        {
+          "name": "DELETE /profile/delete-profile",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:4000/api/v1/profile/delete-profile",
+              "host": ["http://localhost:4000/api/v1"],
+              "path": ["profile", "delete-profile"]
+            },
+            "description": "Delete user profile. Requires authentication."
+          }
+        },
+        {
+          "name": "GET /profile/get-enrolled-courses",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:4000/api/v1/profile/get-enrolled-courses",
+              "host": ["http://localhost:4000/api/v1"],
+              "path": ["profile", "get-enrolled-courses"]
+            },
+            "description": "Get user's enrolled courses. Requires authentication."
+          }
+        },
+        {
+          "name": "GET /profile/get-instructor-dashboard-details",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:4000/api/v1/profile/get-instructor-dashboard-details",
+              "host": ["http://localhost:4000/api/v1"],
+              "path": ["profile", "get-instructor-dashboard-details"]
+            },
+            "description": "Get instructor dashboard data. Requires authentication."
+          }
+        }
+      ]
+    },
+    {
+      "name": "Category",
+      "item": [
+        {
+          "name": "POST /course/create-category",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "url": {
+              "raw": "http://localhost:4000/api/v1/course/create-category",
+              "host": ["http://localhost:4000/api/v1"],
+              "path": ["course", "create-category"]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"{{name}}\",\n  \"description\": \"{{description}}\"\n}"
+            },
+            "description": "Create a new category. Requires authentication. Example: {\"name\": \"Programming\", \"description\": \"Courses on coding\"}"
+          }
+        },
+        {
+          "name": "GET /course/show-all-categories",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:4000/api/v1/course/show-all-categories",
+              "host": ["http://localhost:4000/api/v1"],
+              "path": ["course", "show-all-categories"]
+            },
+            "description": "List all categories."
+          }
+        },
+        {
+          "name": "POST /course/get-category-page-details",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "url": {
+              "raw": "http://localhost:4000/api/v1/course/get-category-page-details",
+              "host": ["http://localhost:4000/api/v1"],
+              "path": ["course", "get-category-page-details"]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"categoryId\": \"{{categoryId}}\"\n}"
+            },
+            "description": "Get details for a category page. Example: {\"categoryId\": \"123\"}"
+          }
+        },
+        {
+          "name": "POST /course/add-course-to-category",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "url": {
+              "raw": "http://localhost:4000/api/v1/course/add-course-to-category",
+              "host": ["http://localhost:4000/api/v1"],
+              "path": ["course", "add-course-to-category"]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"courseId\": \"{{courseId}}\",\n  \"categoryId\": \"{{categoryId}}\"\n}"
+            },
+            "description": "Add a course to a category. Requires authentication. Example: {\"courseId\": \"123\", \"categoryId\": \"456\"}"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Rating",
+      "item": [
+        {
+          "name": "POST /course/create-rating",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "url": {
+              "raw": "http://localhost:4000/api/v1/course/create-rating",
+              "host": ["http://localhost:4000/api/v1"],
+              "path": ["course", "create-rating"]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"courseId\": \"{{courseId}}\",\n  \"rating\": {{rating}},\n  \"review\": \"{{review}}\"\n}"
+            },
+            "description": "Create a rating/review for a course. Requires authentication. Example: {\"courseId\": \"123\", \"rating\": 5, \"review\": \"Great course!\"}"
+          }
+        },
+        {
+          "name": "GET /course/get-average-rating",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:4000/api/v1/course/get-average-rating?courseId={{courseId}}",
+              "host": ["http://localhost:4000/api/v1"],
+              "path": ["course", "get-average-rating"],
+              "query": [
+                { "key": "courseId", "value": "{{courseId}}" }
+              ]
+            },
+            "description": "Get average rating for a course. Example: courseId=123"
+          }
+        },
+        {
+          "name": "GET /course/get-reviews",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:4000/api/v1/course/get-reviews?courseId={{courseId}}",
+              "host": ["http://localhost:4000/api/v1"],
+              "path": ["course", "get-reviews"],
+              "query": [
+                { "key": "courseId", "value": "{{courseId}}" }
+              ]
+            },
+            "description": "Get all reviews for a course. Example: courseId=123"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Contact",
+      "item": [
+        {
+          "name": "POST /contact/contact",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "url": {
+              "raw": "http://localhost:4000/api/v1/contact/contact",
+              "host": ["http://localhost:4000/api/v1"],
+              "path": ["contact", "contact"]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"{{name}}\",\n  \"email\": \"{{email}}\",\n  \"message\": \"{{message}}\"\n}"
+            },
+            "description": "Send a contact message. Example: {\"name\": \"John Doe\", \"email\": \"test@example.com\", \"message\": \"I have a question\"}"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Section & SubSection",
+      "item": [
+        {
+          "name": "POST /course/add-section",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "url": {
+              "raw": "http://localhost:4000/api/v1/course/add-section",
+              "host": ["http://localhost:4000/api/v1"],
+              "path": ["course", "add-section"]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"sectionName\": \"{{sectionName}}\",\n  \"courseId\": \"{{courseId}}\"\n}"
+            },
+            "description": "Add a section to a course. Requires authentication. Example: {\"sectionName\": \"Introduction\", \"courseId\": \"123\"}"
+          }
+        },
+        {
+          "name": "PUT /course/update-section",
+          "request": {
+            "method": "PUT",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "url": {
+              "raw": "http://localhost:4000/api/v1/course/update-section",
+              "host": ["http://localhost:4000/api/v1"],
+              "path": ["course", "update-section"]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"sectionId\": \"{{sectionId}}\",\n  \"sectionName\": \"{{sectionName}}\"\n}"
+            },
+            "description": "Update a section. Requires authentication. Example: {\"sectionId\": \"123\", \"sectionName\": \"Advanced Topics\"}"
+          }
+        },
+        {
+          "name": "DELETE /course/delete-section",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:4000/api/v1/course/delete-section?sectionId={{sectionId}}",
+              "host": ["http://localhost:4000/api/v1"],
+              "path": ["course", "delete-section"],
+              "query": [
+                { "key": "sectionId", "value": "{{sectionId}}" }
+              ]
+            },
+            "description": "Delete a section. Requires authentication. Example: sectionId=123"
+          }
+        },
+        {
+          "name": "POST /course/add-sub-section",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "multipart/form-data" }
+            ],
+            "url": {
+              "raw": "http://localhost:4000/api/v1/course/add-sub-section",
+              "host": ["http://localhost:4000/api/v1"],
+              "path": ["course", "add-sub-section"]
+            },
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                { "key": "sectionId", "value": "{{sectionId}}", "type": "text" },
+                { "key": "title", "value": "{{title}}", "type": "text" },
+                { "key": "video", "type": "file", "src": "" },
+                { "key": "description", "value": "{{description}}", "type": "text" }
+              ]
+            },
+            "description": "Add a subsection to a section. Requires authentication and a video file. Example: sectionId=123, title=\"Lesson 1\", description=\"Intro to Python\""
+          }
+        },
+        {
+          "name": "PUT /course/update-sub-section",
+          "request": {
+            "method": "PUT",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "url": {
+              "raw": "http://localhost:4000/api/v1/course/update-sub-section",
+              "host": ["http://localhost:4000/api/v1"],
+              "path": ["course", "update-sub-section"]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"subSectionId\": \"{{subSectionId}}\",\n  \"title\": \"{{title}}\",\n  \"description\": \"{{description}}\"\n}"
+            },
+            "description": "Update a subsection. Requires authentication. Example: {\"subSectionId\": \"123\", \"title\": \"Lesson 2\", \"description\": \"Python functions\"}"
+          }
+        },
+        {
+          "name": "DELETE /course/delete-sub-section",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:4000/api/v1/course/delete-sub-section?subSectionId={{subSectionId}}",
+              "host": ["http://localhost:4000/api/v1"],
+              "path": ["course", "delete-sub-section"],
+              "query": [
+                { "key": "subSectionId", "value": "{{subSectionId}}" }
+              ]
+            },
+            "description": "Delete a subsection. Requires authentication. Example: subSectionId=123"
+          }
+        }
+      ]
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      { "key": "token", "value": "{{token}}", "type": "string" }
+    ]
+  }
+}
