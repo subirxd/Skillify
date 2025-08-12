@@ -10,10 +10,11 @@ function EnrolledCourse() {
 
     const [enrolledCourses, setEnrolledCourses] = useState(null);
     const [userData, setUserData] = useState(null);
+    const {token} = useSelector((state) => state.auth)
 
     const getEnrolledCourses = async() => {
       try {
-        const result = await dispatch(getUserEnrolledCourses());
+        const result = await dispatch(getUserEnrolledCourses(token));
         setUserData(result);
         setEnrolledCourses(result.courses);
 

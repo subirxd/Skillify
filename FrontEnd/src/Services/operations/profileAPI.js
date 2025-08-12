@@ -6,12 +6,14 @@ import { toast } from "react-toastify";
 import { endpoint } from "../apis";
 import { setToken } from "../../Slices/authSlice";
 
-export  function getUserEnrolledCourses(){
+export  function getUserEnrolledCourses(token){
     return async(dispatch) => {
         
         let result = [];
         try {
-            const response = await apiConnector("GET", Profile_Endpoints.ENROLLED_COURSES_API)
+            const response = await apiConnector("GET", Profile_Endpoints.ENROLLED_COURSES_API, {}, {
+                Authorization: `Bearer ${token}`
+            })
             console.log("GET_USER_ENROLLED_COURSES_API response:", response);
 
             if (!response.data.success) {
