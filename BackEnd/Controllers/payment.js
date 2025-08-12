@@ -4,7 +4,7 @@ import crypto from "crypto"
 import instance from "../Config/razorpay.js"
 import {CourseModel} from "../Models/course.js"
 import {UserModel} from "../Models/user.js"
-import mailSender from "../utils/mailSender.js"
+import mailSender from "../Utils/mailSender.js"
 import {courseEnrollmentEmail} from '../mail/template/courseEnrollmentEmail.js'
 import { paymentSuccessEmail } from "../mail/template/paymentSuccessful.js"
 
