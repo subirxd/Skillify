@@ -2,7 +2,7 @@ import React from 'react'
 import { useState } from 'react';
 import { useForm } from 'react-hook-form'
 import { useDispatch, useSelector } from 'react-redux';
-import IconButton from '../../../../common/IconButton';
+import IconButton from '../../../../Common/IconButton';
 import {useNavigate} from "react-router-dom"
 import { apiConnector } from '../../../../../Services/apiConnector';
 import { editCourseDetails } from '../../../../../Services/operations/courseAPI';

@@ -6,7 +6,7 @@ import { createSubSection, updateSubSection } from '../../../../../Services/oper
 import { setCourse } from '../../../../../Slices/courseSlice';
 import {RxCross1} from "react-icons/rx"
 import CourseThumbnail from '../CourseInformation/CourseThumbnail';
-import IconButton from '../../../../common/IconButton';
+import IconButton from '../../../../Common/IconButton';
 
 function SubSectionModal({
     modalData,

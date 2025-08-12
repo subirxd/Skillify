@@ -4,7 +4,7 @@ import {GrAddCircle} from "react-icons/gr"
 import { useDispatch, useSelector } from 'react-redux';
 import {BiRightArrow} from "react-icons/bi"
 
-import IconButton from '../../../../common/IconButton';
+import IconButton from '../../../../Common/IconButton';
 import { setEditCourse, setStep, setCourse } from '../../../../../Slices/courseSlice';
 import { toast } from 'react-toastify';
 import { createSection, updateSection } from '../../../../../Services/operations/courseAPI';

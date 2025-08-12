@@ -4,7 +4,7 @@ import { Routes, Route } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 
-import { ACCOUNT_TYPE } from './utils/constants'
+import { ACCOUNT_TYPE } from './Utils/constants'
 import Home from './pages/Home'
 import Login from './pages/Login'
 import SignUp from './pages/SignUp'

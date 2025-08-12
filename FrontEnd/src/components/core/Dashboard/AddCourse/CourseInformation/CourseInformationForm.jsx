@@ -7,9 +7,9 @@ import { setCourse, setStep } from '../../../../../Slices/courseSlice';
 
 import { HiOutlineCurrencyRupee } from "react-icons/hi"
 import { MdNavigateNext } from "react-icons/md"
-import IconButton from '../../../../common/IconButton';
+import IconButton from '../../../../Common/IconButton';
 import { toast } from 'react-toastify';
-import { COURSE_STATUS } from '../../../../../utils/constants';
+import { COURSE_STATUS } from '../../../../../Utils/constants';
 import ChipInput from './ChipInput';
 import CourseThumbnail from './CourseThumbnail';
 

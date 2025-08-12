@@ -10,8 +10,8 @@ import { RiDeleteBin6Line } from "react-icons/ri"
 import { useNavigate } from "react-router-dom"
 
 import { formatDate } from "../../../../services/formatDate"
-import { COURSE_STATUS } from "../../../../utils/constants"
-import ConfirmationModal from "../../../common/ConfirmationModal"
+import { COURSE_STATUS } from "../../../../Utils/constants"
+import ConfirmationModal from "../../../Common/ConfirmationModal"
 import { courseDelete } from "../../../../Services/operations/courseAPI"
 import { useEffect } from "react"
 

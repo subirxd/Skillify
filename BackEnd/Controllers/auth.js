@@ -5,7 +5,7 @@ import bcrypt from "bcrypt"
 import { ProfileModel } from "../Models/profile.js";
 import jwt from "jsonwebtoken"
 import {config, configDotenv} from "dotenv"
-import mailSender from "../utils/mailSender.js";
+import mailSender from "../Utils/mailSender.js";
 configDotenv();
 
 //sendOTP

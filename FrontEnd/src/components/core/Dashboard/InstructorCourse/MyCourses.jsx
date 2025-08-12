@@ -5,7 +5,7 @@ import {useNavigate} from "react-router-dom"
 
 import { VscAdd } from "react-icons/vsc"
 import { fetchInstructorCourses } from "../../../../Services/operations/courseAPI";
-import IconButton from '../../../common/IconButton';
+import IconButton from '../../../Common/IconButton';
 import CourseTable from './CourseTable';
 
 
