@@ -2,7 +2,7 @@ import React, { useRef, useState, useEffect } from 'react';
 import { useDropzone } from 'react-dropzone'; // Import the useDropzone hook
 import { FiUploadCloud } from "react-icons/fi";
 import { useSelector } from 'react-redux';
-import { Player } from 'video-react';
+import ReactPlayer from 'react-player';
 import "video-react/dist/video-react.css";
 
 // This component handles both image and video uploads
@@ -94,7 +94,7 @@ export default function CourseThumbnail({
                                 className="h-full w-full rounded-md object-cover"
                             />
                         ) : (
-                            <Player aspectRatio="16:9" playsInline src={previewSource} />
+                            <ReactPlayer aspectRatio="16:9" playsInline src={previewSource} />
                         )}
                         {!viewData && (
                             <button
