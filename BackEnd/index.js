@@ -19,7 +19,7 @@ app.use(cookieParser());
 
 app.use(
     cors({
-     origin: ["http://192.168.0.176:3000", "http://localhost:3000", "https://skillify-pmxq.onrender.com/"],
+     origin: ["http://192.168.0.176:3000", "http://localhost:3000", "https://skillify-dun.vercel.app"],
     credentials: true,
     })
 );
