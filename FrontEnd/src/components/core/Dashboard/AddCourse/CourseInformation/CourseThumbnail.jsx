@@ -3,7 +3,6 @@ import { useDropzone } from 'react-dropzone'; // Import the useDropzone hook
 import { FiUploadCloud } from "react-icons/fi";
 import { useSelector } from 'react-redux';
 import ReactPlayer from 'react-player';
-import "video-react/dist/video-react.css";
 
 // This component handles both image and video uploads
 export default function CourseThumbnail({
