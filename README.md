@@ -89,7 +89,7 @@ Option A: Run both concurrently from the repo root:
 npm run dev
 ```
 - Backend: reads `PORT` from env (default example: 4000)
-- Frontend: Vite default port is 5173
+- Frontend: 3000
 
 Option B: Run separately:
 ```
@@ -101,13 +101,11 @@ cd FrontEnd && npm run dev
 ```
 
 App URLs:
-- Frontend (Vite default): `http://localhost:5173`
+- Frontend: `http://localhost:3000`
 - Backend: `http://localhost:4000`
 - API Base (as used by frontend): `http://localhost:4000/api/v1`
 
-CORS note: Backend currently allows origins set in `BackEnd/index.js`. If you run Vite on port 5173 and face CORS issues, either:
-- start Vite on port 3000: `npm run dev -- --port 3000` in `FrontEnd`, or
-- add `http://localhost:5173` to the allowed origins in `BackEnd/index.js`.
+CORS note: Backend allows origins set in `BackEnd/index.js` (includes `http://localhost:3000`). If you change the Vite port, add the new origin to this list.
 
 ## API Routes (base: `/api/v1`)
 Mounted in `BackEnd/index.js`:
@@ -137,16 +135,55 @@ Skillify/
 ```
 
 ## Screenshots
-![Home](https://res.cloudinary.com/dpfmucera/image/upload/v1757249446/home_vripl7.png)
-![Login](https://res.cloudinary.com/dpfmucera/image/upload/v1757249446/login_zmasc4.png)
-![Signup](https://res.cloudinary.com/dpfmucera/image/upload/v1757249446/signup_ugu53r.png)
-![Course Page](https://res.cloudinary.com/dpfmucera/image/upload/v1757249445/course_page_i6gbfl.png)
-![Add Review](https://res.cloudinary.com/dpfmucera/image/upload/v1757249444/add_review_ix7iu3.png)
-![Student Enrolled Courses](https://res.cloudinary.com/dpfmucera/image/upload/v1757249446/student_enrolled_courses_kbn0fs.png)
-![My Profile](https://res.cloudinary.com/dpfmucera/image/upload/v1757249445/myprofile_nieo8v.png)
-![Instructor Dashboard](https://res.cloudinary.com/dpfmucera/image/upload/v1757249445/instructor_dashboard_ufg4dc.png)
-![Add Course](https://res.cloudinary.com/dpfmucera/image/upload/v1757249444/add_course_rprebo.png)
-![Contact Us](https://res.cloudinary.com/dpfmucera/image/upload/v1757249444/contactUS_g4znhp.png)
+<figure>
+  <img src="https://res.cloudinary.com/dpfmucera/image/upload/v1757249446/home_vripl7.png" alt="Home" />
+  <figcaption>Home</figcaption>
+</figure>
+
+<figure>
+  <img src="https://res.cloudinary.com/dpfmucera/image/upload/v1757249446/login_zmasc4.png" alt="Login" />
+  <figcaption>Login</figcaption>
+</figure>
+
+<figure>
+  <img src="https://res.cloudinary.com/dpfmucera/image/upload/v1757249446/signup_ugu53r.png" alt="Signup" />
+  <figcaption>Signup</figcaption>
+</figure>
+
+<figure>
+  <img src="https://res.cloudinary.com/dpfmucera/image/upload/v1757249445/course_page_i6gbfl.png" alt="Course Page" />
+  <figcaption>Course Page</figcaption>
+</figure>
+
+<figure>
+  <img src="https://res.cloudinary.com/dpfmucera/image/upload/v1757249444/add_review_ix7iu3.png" alt="Add Review" />
+  <figcaption>Add Review</figcaption>
+</figure>
+
+<figure>
+  <img src="https://res.cloudinary.com/dpfmucera/image/upload/v1757249446/student_enrolled_courses_kbn0fs.png" alt="Student Enrolled Courses" />
+  <figcaption>Student Enrolled Courses</figcaption>
+</figure>
+
+<figure>
+  <img src="https://res.cloudinary.com/dpfmucera/image/upload/v1757249445/myprofile_nieo8v.png" alt="My Profile" />
+  <figcaption>My Profile</figcaption>
+</figure>
+
+<figure>
+  <img src="https://res.cloudinary.com/dpfmucera/image/upload/v1757249445/instructor_dashboard_ufg4dc.png" alt="Instructor Dashboard" />
+  <figcaption>Instructor Dashboard</figcaption>
+</figure>
+
+<figure>
+  <img src="https://res.cloudinary.com/dpfmucera/image/upload/v1757249444/add_course_rprebo.png" alt="Add Course" />
+  <figcaption>Add Course</figcaption>
+</figure>
+
+<figure>
+  <img src="https://res.cloudinary.com/dpfmucera/image/upload/v1757249444/contactUS_g4znhp.png" alt="Contact Us" />
+  <figcaption>Contact Us</figcaption>
+</figure>
 
 ## Deployment
 - Frontend can be deployed on Vercel/Netlify. Set envs `VITE_BASE_URL` and `VITE_RAZORPAY_KEY`.
